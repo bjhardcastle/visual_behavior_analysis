@@ -43,3 +43,34 @@ dev = [
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+    "--doctest-modules",
+]
+
+markers = [
+    "onprem: mark a test to run only on-premises, with access to on-prem resources",
+]
+
+doctest_optionflags = [
+    "NORMALIZE_WHITESPACE",
+    "IGNORE_EXCEPTION_DETAIL",
+    "ELLIPSIS",
+]
+
+testpaths = [
+    "tests",
+]
+
+[tool.coverage.paths]
+source = ["src"]
+
+[tool.coverage.run]
+branch = true
+source = ["visual_behavior"]
+
+[tool.coverage.report]
+show_missing = true
+[tool.pdm]
