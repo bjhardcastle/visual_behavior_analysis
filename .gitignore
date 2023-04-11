@@ -71,3 +71,5 @@ figures/
 .vscode/
 
 \.DS_Store
+
+.pdm*
