@@ -4,7 +4,7 @@ from .core import TrialSchema
 
 
 class FriendlyDateTime(fields.DateTime):
-    def _deserialize(self, value, attr, data):
+    def _deserialize(self, value, attr, data, **kwargs):
         if isinstance(value, datetime):
             return value
         result = super(FriendlyDateTime, self)._deserialize(value, attr, data)
@@ -12,7 +12,7 @@ class FriendlyDateTime(fields.DateTime):
 
 
 class FriendlyDate(fields.Date):
-    def _deserialize(self, value, attr, data):
+    def _deserialize(self, value, attr, data, **kwargs):
         if isinstance(value, date):
             return value
         result = super(FriendlyDate, self)._deserialize(value, attr, data)
